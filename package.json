@@ -2,12 +2,12 @@
   "name": "history-block-async",
   "description": "Allows to block history transitions asynchronously",
   "author": "Nebenan.de <max@nebenan.de>",
-  "license": "SEE LICENSE IN LICENSE FILE",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "homepage": "https://goodhood.eu",
   "repository": "goodhood-eu/history-block-async",
   "bugs": "https://github.com/goodhood-eu/history-block-async/issues",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "node": "^10.x.x"
   },

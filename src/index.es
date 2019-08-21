@@ -3,6 +3,10 @@ let listeners = [];
 let isTransitioning = false;
 let preventedAction = null;
 
+const isServerEnv = () => (
+  typeof process !== 'undefined' && process && process.versions && process.versions.node
+);
+
 const getReplay = (location, action) => {
   // attempting to replay `POP` with goBack simply returns to the same state as before.
   const key = action === 'POP' ? 'replace' : action.toLowerCase();
@@ -61,7 +65,7 @@ const addListener = (arg) => {
 const noop = () => console.error('history.block is unavailable, please use the replacer method');
 
 const patchHistory = (history, methodName = 'block') => {
-  if (!process.browser) throw new Error('This can only work in a browser environment.');
+  if (isServerEnv()) throw new Error('This can only work in a browser environment.');
 
   instance = history;
   history.block(handleNavigate);
