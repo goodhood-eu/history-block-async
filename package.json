@@ -1,0 +1,45 @@
+{
+  "name": "history-block-async",
+  "description": "Allows to block history transitions asynchronously",
+  "author": "Nebenan.de <max@nebenan.de>",
+  "license": "SEE LICENSE IN LICENSE FILE",
+  "readmeFilename": "README.md",
+  "homepage": "https://goodhood.eu",
+  "repository": "goodhood-eu/history-block-async",
+  "bugs": "https://github.com/goodhood-eu/history-block-async/issues",
+  "version": "1.0.0",
+  "engines": {
+    "node": "^10.x.x"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "check": "npm run lint && echo \"\\033[0;32mReady to publish\\033[0m\"",
+    "clean": "rm -rf ./lib/ || exit 1",
+    "build:babel": "NODE_ENV=production babel src --out-dir lib --copy-files",
+    "prepublishOnly": "npm run check && npm run clean && npm run build:babel",
+    "lint": "eslint --ext .es,.js ./",
+    "lint:tofile": "eslint --ext .es,.js --no-color -o ./eslint-report.log ./",
+    "test": "npm run build:babel && TZ='GMT' mocha \"test/*.js\"",
+    "test:tofile": "npm run build:babel && TZ='GMT' mocha --no-colors -R spec \"test/*.js\" 2>&1 | tee test-report.log"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/plugin-transform-strict-mode": "^7.0.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/runtime": "^7.4.5",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "chai": "^4.2.0",
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "history": "^4.9.0",
+    "mocha": "^6.2.0"
+  },
+  "peerDependencies": {
+    "history": "^4.9.0"
+  }
+}
