@@ -7,10 +7,19 @@
   "homepage": "https://goodhood.eu",
   "repository": "goodhood-eu/history-block-async",
   "bugs": "https://github.com/goodhood-eu/history-block-async/issues",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "engines": {
     "node": "^10.x.x"
   },
+  "keywords": [
+    "react",
+    "react router",
+    "history",
+    "block",
+    "prevent",
+    "navigation",
+    "prevent navigation"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
